@@ -111,17 +111,18 @@ public class UserTest {
         List<BorrowingBooks> list = borrowingBooksMapper.selectByExample(borrowingBooksExample);
         if (!list.isEmpty()) {
             System.out.println("失败");
-            return ;
+            return;
         }
         //创建新的借书记录
         BorrowingBooks borrowingBooks = new BorrowingBooks();
         borrowingBooks.setBookId(71);
         borrowingBooks.setUserId(7);
         borrowingBooks.setDate(new Date());
+
         //尝试插入借书记录：
         try {
             //数据库中增加一条借书记录 【如果插入失败 , 则借书失败】
-           borrowingBooksMapper.insert(borrowingBooks);
+            borrowingBooksMapper.insert(borrowingBooks);
         } catch (Exception e) {
             System.out.println("失败");
         }
